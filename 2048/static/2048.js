@@ -25,7 +25,7 @@ function display() {
 }
 
 function right() {
-    var isMoved = false;
+    //var isMoved = false;
     for (var i = 0; i < 4; i++) {
         //get it
         var ar = [0, 0, 0, 0];
@@ -49,14 +49,14 @@ function right() {
         var l = vr.length;
         if (l > 1) {
             if (l == 2) { // l = 2 or l = 3 must move
-                isMoved = true;
+                //isMoved = true;
                 if (vr[0] == vr[1]) {
                     vr[0] = 2 * vr[0];
                     score += vr[0];
                     vr[1] = 0;
                 }
             } else if (l == 3) {
-                isMoved = true;
+                //isMoved = true;
                 if (vr[0] == vr[1]) {
                     vr[0] = 2 * vr[0];
                     score += vr[0];
@@ -69,7 +69,7 @@ function right() {
                 }
             } else {
                 if (vr[0] == vr[1]) {
-                    isMoved = true;
+                    //isMoved = true;
                     if (vr[2] == vr[3]) {
                         vr[0] = 2 * vr[0];
                         score += vr[0];
@@ -88,13 +88,13 @@ function right() {
                     }
 
                 } else if (vr[1] == vr[2]) {
-                    isMoved = true;
+                    //isMoved = true;
                     vr[1] = 2 * vr[2];
                     score += vr[1];
                     vr[2] = vr[3];
                     vr[3] = 0;
                 } else if (vr[2] == vr[3]) {
-                    isMoved = true;
+                    //isMoved = true;
                     vr[2] = 2 * vr[2];
                     score += vr[2];
                     vr[3] = 0;
@@ -116,11 +116,11 @@ function right() {
         for (var k = 0; k < 4; k++) dis[k][i] = vr[k];
 
     }
-    return isMoved
+    //return isMoved
 
 }
 function down() {
-
+    //var isMoved = false;
     for (var i = 0; i < 4; i++) {
         //get it
         var ar = [0, 0, 0, 0];
@@ -144,14 +144,14 @@ function down() {
         var l = vr.length;
         if (l > 1) {
             if (l == 2) {
-                isMoved = true;
+                //isMoved = true;
                 if (vr[0] == vr[1]) {
                     vr[0] = 2 * vr[0];
                     score += vr[0];
                     vr[1] = 0;
                 }
             } else if (l == 3) {
-                isMoved = true;
+                //isMoved = true;
                 if (vr[0] == vr[1]) {
                     vr[0] = 2 * vr[0];
                     score += vr[0];
@@ -164,7 +164,7 @@ function down() {
                 }
             } else {
                 if (vr[0] == vr[1]) {
-                    isMoved = true;
+                    //isMoved = true;
                     if (vr[2] == vr[3]) {
                         vr[0] = 2 * vr[0];
                         score += vr[0];
@@ -183,13 +183,13 @@ function down() {
                     }
 
                 } else if (vr[1] == vr[2]) {
-                    isMoved = true;
+                    //isMoved = true;
                     vr[1] = 2 * vr[2];
                     score += vr[1];
                     vr[2] = vr[3];
                     vr[3] = 0;
                 } else if (vr[2] == vr[3]) {
-                    isMoved = true;
+                    //isMoved = true;
                     vr[2] = 2 * vr[2];
                     score += vr[2];
                     vr[3] = 0;
@@ -211,11 +211,11 @@ function down() {
         for (var k = 0; k < 4; k++) dis[i][k] = vr[k];
 
     }
-    return isMoved
+    //return isMoved
 }
 
 function up() {
-
+    //var isMoved = false;
     for (var i = 0; i < 4; i++) {
         //get it
         var ar = [0, 0, 0, 0];
@@ -231,14 +231,14 @@ function up() {
         var l = vr.length;
         if (l > 1) {
             if (l == 2) {
-                isMoved = true;
+                //isMoved = true;
                 if (vr[0] == vr[1]) {
                     vr[0] = 2 * vr[0];
                     score += vr[0];
                     vr[1] = 0;
                 }
             } else if (l == 3) {
-                isMoved = true;
+                //isMoved = true;
                 if (vr[0] == vr[1]) {
                     vr[0] = 2 * vr[0];
                     score += vr[0];
@@ -251,7 +251,7 @@ function up() {
                 }
             } else {
                 if (vr[0] == vr[1]) {
-                    isMoved = true;
+                   // isMoved = true;
                     if (vr[2] == vr[3]) {
                         vr[0] = 2 * vr[0];
                         score += vr[0];
@@ -270,13 +270,13 @@ function up() {
                     }
 
                 } else if (vr[1] == vr[2]) {
-                    isMoved = true;
+                    //isMoved = true;
                     vr[1] = 2 * vr[2];
                     score += vr[1];
                     vr[2] = vr[3];
                     vr[3] = 0;
                 } else if (vr[2] == vr[3]) {
-                    isMoved = true;
+                    //isMoved = true;
                     vr[2] = 2 * vr[3];
                     score += vr[2];
                     vr[3] = 0;
@@ -290,11 +290,11 @@ function up() {
         for (var k = 0; k < 4; k++) dis[i][k] = vr[k];
 
     }
-    return isMoved
+    //return isMoved
 }
 
 function left() {
-
+    //var isMoved = false;
     for (var i = 0; i < 4; i++) {
         //get it
         var ar = [0, 0, 0, 0];
@@ -309,14 +309,14 @@ function left() {
         var l = vr.length;
         if (l > 1) {
             if (l == 2) {
-                isMoved = true;
+                //isMoved = true;
                 if (vr[0] == vr[1]) {
                     vr[0] = 2 * vr[0];
                     score += vr[0];
                     vr[1] = 0;
                 }
             } else if (l == 3) {
-                isMoved = true;
+                //isMoved = true;
                 if (vr[0] == vr[1]) {
                     vr[0] = 2 * vr[0];
                     score += vr[0];
@@ -329,7 +329,7 @@ function left() {
                 }
             } else {
                 if (vr[0] == vr[1]) {
-                    isMoved = true;
+                    //isMoved = true;
                     if (vr[2] == vr[3]) {
                         vr[0] = 2 * vr[0];
                         score += vr[0];
@@ -348,13 +348,13 @@ function left() {
                     }
 
                 } else if (vr[1] == vr[2]) {
-                    isMoved = true;
+                    //isMoved = true;
                     vr[1] = 2 * vr[2];
                     score += vr[1];
                     vr[2] = vr[3];
                     vr[3] = 0;
                 } else if (vr[2] == vr[3]) {
-                    isMoved = true;
+                    //isMoved = true;
                     vr[2] = 2 * vr[2];
                     score += vr[2];
                     vr[3] = 0;
@@ -368,7 +368,7 @@ function left() {
         for (var k = 0; k < 4; k++) dis[k][i] = vr[k];
 
     }
-    return isMoved
+    //return isMoved
 }
 display();
 
@@ -402,23 +402,27 @@ function(e) {
     if (disable == 1) {
         return;
     }
-    var isMoved = false;
+    //var isMoved = false;
     key = e.keyCode;
     if (key == 37) {
         e.preventDefault();
-        isMoved = left();
+        left();
+    //    isMoved = left();
     }
     if (key == 38) {
         e.preventDefault();
-        isMoved = up();
+        up();
+    //    isMoved = up();
     }
     if (key == 39) {
         e.preventDefault();
-        isMoved = right();
+        right();
+    //    isMoved = right();
     }
     if (key == 40) {
         e.preventDefault();
-        isMoved = down();
+        down();
+    //    isMoved = down();
     }
     scoreLabel.innerHTML = 'Score : ' + score;
 // judge win or game over
@@ -436,7 +440,8 @@ function(e) {
         gameover();
         return;
     }
-    else if (isMoved) {
+    //else if (isMoved) {
+    else {
         var n = Math.floor(Math.random() * 16);
         for (; n < 32; n++) {
             m = n % 16;
@@ -446,8 +451,8 @@ function(e) {
             }
         }
     }
-    else {
-        return;
-    }
+    //else {
+    //    return;
+    //}
     display();
 });
