@@ -31,240 +31,277 @@ function right() {
         var ar = [0, 0, 0, 0];
         var vr = [];
         for (var j = 0; j < 4; j++) {
-            if (dis[j][i] != 0) {
-                vr.push(dis[j][i]);
-            }
+            if (dis[j][i] != 0) vr.push(dis[j][i]);
+
             ar[j] = dis[j][i];
         }
+
         //reverse the vr
         var tr = [];
         for (var k = vr.length - 1; k >= 0; k--) {
             tr.push(vr[k]);
         }
-        for (var k = 0; k < vr.length; k++)
-        {
-            vr[k] = tr[k];
-        }
+
+        for (var k = 0; k < vr.length; k++) vr[k] = tr[k];
+
         // vr.length determines the total number of actual characters.
         // change the vr
         var l = vr.length;
         if (l > 1) {
-            if (l == 2) {
+            if (l == 2) { // l = 2 or l = 3 must move
+                isMoved = true;
                 if (vr[0] == vr[1]) {
                     vr[0] = 2 * vr[0];
+                    score += vr[0];
                     vr[1] = 0;
                 }
             } else if (l == 3) {
+                isMoved = true;
                 if (vr[0] == vr[1]) {
                     vr[0] = 2 * vr[0];
+                    score += vr[0];
                     vr[1] = vr[2];
                     vr[2] = 0;
                 } else if (vr[1] == vr[2]) {
                     vr[1] = 2 * vr[1];
+                    score += vr[1];
                     vr[2] = 0;
                 }
             } else {
                 if (vr[0] == vr[1]) {
+                    isMoved = true;
                     if (vr[2] == vr[3]) {
                         vr[0] = 2 * vr[0];
+                        score += vr[0];
                         vr[1] = 2 * vr[2];
+                        score += vr[1];
                         vr[2] = 0;
                         vr[3] = 0;
                     }
 
                     else {
                         vr[0] = 2 * vr[0];
+                        score += vr[0];
                         vr[1] = vr[2];
                         vr[2] = vr[3];
                         vr[3] = 0;
                     }
 
                 } else if (vr[1] == vr[2]) {
+                    isMoved = true;
                     vr[1] = 2 * vr[2];
+                    score += vr[1];
                     vr[2] = vr[3];
                     vr[3] = 0;
                 } else if (vr[2] == vr[3]) {
-                    vr[3] = 2 * vr[2];
+                    isMoved = true;
+                    vr[2] = 2 * vr[2];
+                    score += vr[2];
                     vr[3] = 0;
                 }
+
             }
         }
-        for (var k = 0; k < 4 - l; k++) {
-            vr.push(0);
-        }
+
+        for (var k = 0; k < 4 - l; k++) vr.push(0);
+
         //reverse vr again;
         tr = [];
         for (var k = vr.length - 1; k >= 0; k--) {
             tr.push(vr[k]);
         }
-        for (var k = 0; k < 4 - l; k++) {
-            vr.push(0);
-        }
-        for (var k = 0; k < 4; k++) {
-            dis[k][i] = vr[k];
-        }
+
+        for (var k = 0; k < vr.length; k++) vr[k] = tr[k];
+
+        for (var k = 0; k < 4; k++) dis[k][i] = vr[k];
+
     }
     return isMoved
+
 }
 function down() {
-    var isMoved = false;
+
     for (var i = 0; i < 4; i++) {
         //get it
         var ar = [0, 0, 0, 0];
         var vr = [];
         for (var j = 0; j < 4; j++) {
-            if (dis[i][j] != 0) {
-                vr.push(dis[i][j]);
-            }
+            if (dis[i][j] != 0) vr.push(dis[i][j]);
+
             ar[j] = dis[i][j];
         }
+
         //reverse the vr
         var tr = [];
         for (var k = vr.length - 1; k >= 0; k--) {
             tr.push(vr[k]);
         }
-        for (var k = 0; k < vr.length; k++) {
-            vr[k] = tr[k];
-        }
+
+        for (var k = 0; k < vr.length; k++) vr[k] = tr[k];
+
         // vr.length determines the total number of actual characters.
         // change the vr
         var l = vr.length;
         if (l > 1) {
             if (l == 2) {
+                isMoved = true;
                 if (vr[0] == vr[1]) {
                     vr[0] = 2 * vr[0];
+                    score += vr[0];
                     vr[1] = 0;
                 }
             } else if (l == 3) {
+                isMoved = true;
                 if (vr[0] == vr[1]) {
                     vr[0] = 2 * vr[0];
+                    score += vr[0];
                     vr[1] = vr[2];
                     vr[2] = 0;
                 } else if (vr[1] == vr[2]) {
                     vr[1] = 2 * vr[1];
+                    score += vr[1];
                     vr[2] = 0;
                 }
             } else {
                 if (vr[0] == vr[1]) {
+                    isMoved = true;
                     if (vr[2] == vr[3]) {
                         vr[0] = 2 * vr[0];
+                        score += vr[0];
                         vr[1] = 2 * vr[2];
+                        score += vr[1];
                         vr[2] = 0;
                         vr[3] = 0;
                     }
 
                     else {
                         vr[0] = 2 * vr[0];
+                        score += vr[0];
                         vr[1] = vr[2];
                         vr[2] = vr[3];
                         vr[3] = 0;
                     }
 
                 } else if (vr[1] == vr[2]) {
+                    isMoved = true;
                     vr[1] = 2 * vr[2];
+                    score += vr[1];
                     vr[2] = vr[3];
                     vr[3] = 0;
                 } else if (vr[2] == vr[3]) {
+                    isMoved = true;
                     vr[2] = 2 * vr[2];
+                    score += vr[2];
                     vr[3] = 0;
                 }
 
             }
         }
-        for (var k = 0; k < 4 - l; k++) {
-            vr.push(0);
-        }
+
+        for (var k = 0; k < 4 - l; k++) vr.push(0);
+
         //reverse vr again;
         tr = [];
         for (var k = vr.length - 1; k >= 0; k--) {
             tr.push(vr[k]);
         }
-        for (var k = 0; k < 4 - l; k++) {
-            vr.push(0);
-        }
-        for (var k = 0; k < 4; k++) {
-            dis[k][i] = vr[k];
-        }
+
+        for (var k = 0; k < vr.length; k++) vr[k] = tr[k];
+
+        for (var k = 0; k < 4; k++) dis[i][k] = vr[k];
+
     }
     return isMoved
 }
 
 function up() {
-    var isMoved = false;
+
     for (var i = 0; i < 4; i++) {
         //get it
         var ar = [0, 0, 0, 0];
         var vr = [];
         for (var j = 0; j < 4; j++) {
-            if (dis[i][j] != 0) {
-                vr.push(dis[i][j]);
-            }
+            if (dis[i][j] != 0) vr.push(dis[i][j]);
+
             ar[j] = dis[i][j];
         }
+
         // vr.length determines the total number of actual characters.
         // change the vr
         var l = vr.length;
         if (l > 1) {
             if (l == 2) {
+                isMoved = true;
                 if (vr[0] == vr[1]) {
                     vr[0] = 2 * vr[0];
+                    score += vr[0];
                     vr[1] = 0;
                 }
             } else if (l == 3) {
+                isMoved = true;
                 if (vr[0] == vr[1]) {
                     vr[0] = 2 * vr[0];
+                    score += vr[0];
                     vr[1] = vr[2];
                     vr[2] = 0;
                 } else if (vr[1] == vr[2]) {
                     vr[1] = 2 * vr[1];
+                    score += vr[1];
                     vr[2] = 0;
                 }
             } else {
                 if (vr[0] == vr[1]) {
+                    isMoved = true;
                     if (vr[2] == vr[3]) {
                         vr[0] = 2 * vr[0];
+                        score += vr[0];
                         vr[1] = 2 * vr[2];
+                        score += vr[1];
                         vr[2] = 0;
                         vr[3] = 0;
                     }
 
                     else {
                         vr[0] = 2 * vr[0];
+                        score += vr[0];
                         vr[1] = vr[2];
                         vr[2] = vr[3];
                         vr[3] = 0;
                     }
 
                 } else if (vr[1] == vr[2]) {
+                    isMoved = true;
                     vr[1] = 2 * vr[2];
+                    score += vr[1];
                     vr[2] = vr[3];
                     vr[3] = 0;
                 } else if (vr[2] == vr[3]) {
+                    isMoved = true;
                     vr[2] = 2 * vr[3];
+                    score += vr[2];
                     vr[3] = 0;
                 }
+
             }
         }
-        for (var k = 0; k < 4 - l; k++) {
-            vr.push(0);
-        }
-        for (var k = 0; k < 4; k++) {
-            dis[k][i] = vr[k];
-        }
+
+        for (var k = 0; k < 4 - l; k++) vr.push(0);
+
+        for (var k = 0; k < 4; k++) dis[i][k] = vr[k];
+
     }
     return isMoved
 }
 
 function left() {
-    var isMoved = false;
+
     for (var i = 0; i < 4; i++) {
         //get it
         var ar = [0, 0, 0, 0];
         var vr = [];
         for (var j = 0; j < 4; j++) {
-            if (dis[j][i] != 0) {
-                vr.push(dis[j][i]);
-            }
+            if (dis[j][i] != 0) vr.push(dis[j][i]);
+
             ar[j] = dis[j][i];
         }
         // vr.length determines the total number of actual characters.
@@ -272,50 +309,64 @@ function left() {
         var l = vr.length;
         if (l > 1) {
             if (l == 2) {
+                isMoved = true;
                 if (vr[0] == vr[1]) {
                     vr[0] = 2 * vr[0];
+                    score += vr[0];
                     vr[1] = 0;
                 }
             } else if (l == 3) {
+                isMoved = true;
                 if (vr[0] == vr[1]) {
                     vr[0] = 2 * vr[0];
+                    score += vr[0];
                     vr[1] = vr[2];
                     vr[2] = 0;
                 } else if (vr[1] == vr[2]) {
                     vr[1] = 2 * vr[1];
+                    score += vr[1];
                     vr[2] = 0;
                 }
             } else {
                 if (vr[0] == vr[1]) {
+                    isMoved = true;
                     if (vr[2] == vr[3]) {
                         vr[0] = 2 * vr[0];
+                        score += vr[0];
                         vr[1] = 2 * vr[2];
+                        score += vr[1];
                         vr[2] = 0;
                         vr[3] = 0;
                     }
+
                     else {
                         vr[0] = 2 * vr[0];
+                        score += vr[0];
                         vr[1] = vr[2];
                         vr[2] = vr[3];
                         vr[3] = 0;
                     }
+
                 } else if (vr[1] == vr[2]) {
+                    isMoved = true;
                     vr[1] = 2 * vr[2];
+                    score += vr[1];
                     vr[2] = vr[3];
                     vr[3] = 0;
                 } else if (vr[2] == vr[3]) {
+                    isMoved = true;
                     vr[2] = 2 * vr[2];
+                    score += vr[2];
                     vr[3] = 0;
                 }
 
             }
         }
-        for (var k = 0; k < 4 - l; k++) {
-            vr.push(0);
-        }
-        for (var k = 0; k < 4; k++) {
-            dis[k][i] = vr[k];
-        }
+
+        for (var k = 0; k < 4 - l; k++) vr.push(0);
+
+        for (var k = 0; k < 4; k++) dis[k][i] = vr[k];
+
     }
     return isMoved
 }
